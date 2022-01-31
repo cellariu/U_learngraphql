@@ -4,6 +4,10 @@ type Query {
     allHellos: [Hello]
     oneHello: Hello
     books(author: String): [Book]
+    booksByReleased(
+        year: Int!
+        printedEdition:Boolean): [Book]
+    booksByReleased2(releasedHistory: ReleaseHistoryInput!): [Book]
 }
 
 # create the schema object

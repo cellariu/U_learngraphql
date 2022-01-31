@@ -3,6 +3,7 @@ package com.cami.udemy.graphql.learngraphql.component.fake;
 import com.cami.udemy.graphql.learngraphql.datasource.fake.FakeBookDatasource;
 import com.cami.udemy.graphql.learngraphql.types.Author;
 import com.cami.udemy.graphql.learngraphql.types.Book;
+import com.cami.udemy.graphql.learngraphql.types.ReleaseHistoryInput;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsData;
 import com.netflix.graphql.dgs.DgsQuery;
@@ -33,5 +34,36 @@ public class FakeBookDataResolver {
         return FakeBookDatasource.BOOKS_LIST.stream()
                 .filter(b -> StringUtils.containsIgnoreCase(b.getAuthor().getName(), authorName))
                 .collect(Collectors.toList());
+    }
+
+    @DgsQuery
+    public List<Book> booksByReleased(Integer year, Boolean printedEdition) {
+
+        if (year == null || printedEdition == null) {
+            return FakeBookDatasource.BOOKS_LIST;
+        }
+
+        return FakeBookDatasource.BOOKS_LIST.stream()
+                .filter(b -> b.getReleased().getYear().compareTo(year) == 0 && b.getReleased().getPrintedEdition().compareTo(printedEdition) == 0)
+                .collect(Collectors.toList());
+
+    }
+
+    @DgsData(parentType = "Query", field = "booksByReleased2")
+    public List<Book> booksByReleased2(@InputArgument ReleaseHistoryInput releasedHistory) {
+
+        if (releasedHistory == null) {
+            return FakeBookDatasource.BOOKS_LIST;
+        }
+
+        if (releasedHistory.getYear() == null || releasedHistory.getPrintedEdition() == null) {
+            return FakeBookDatasource.BOOKS_LIST;
+        }
+
+        return FakeBookDatasource.BOOKS_LIST.stream()
+                .filter(b -> b.getReleased().getYear().compareTo(releasedHistory.getYear()) == 0 &&
+                            b.getReleased().getPrintedEdition().compareTo(releasedHistory.getPrintedEdition()) == 0)
+                .collect(Collectors.toList());
+
     }
 }
