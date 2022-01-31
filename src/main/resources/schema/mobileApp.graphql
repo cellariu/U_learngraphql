@@ -1,0 +1,24 @@
+type MobileApp {
+    name: String!
+    version: String
+    platform: [String]
+    author: Author
+}
+
+# input objects are used as dynamic filters
+# If an input object depends on another complex object,
+# the inside object must be defined as input
+
+# All input on filters are optional; this means the data resolver
+# must handle the null possibility!
+input MobileAppFilter {
+    name: String
+    version: String
+    platform: String
+    author: AuthorFilter
+}
+
+# AuthorFilter is defined as input because it is used inside of another input object
+input AuthorFilter {
+    name: String
+}
