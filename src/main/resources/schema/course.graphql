@@ -8,6 +8,7 @@ type Query {
         year: Int!
         printedEdition:Boolean): [Book]
     booksByReleased2(releasedHistory: ReleaseHistoryInput!): [Book]
+    mobileApps(mobileAppFilter: MobileAppFilter): [MobileApp]
 }
 
 # create the schema object
