@@ -1,0 +1,13 @@
+
+# create the Root Query
+type Query {
+    allHellos: [Hello]
+    oneHello: Hello
+    books(author: String): [Book]
+}
+
+# create the schema object
+# this part is optional as long as the type name is Query or Mutation
+#schema {
+#    query: Query
+#}

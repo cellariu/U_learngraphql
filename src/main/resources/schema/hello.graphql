@@ -1,0 +1,5 @@
+# create Hello Object
+type Hello {
+    text: String!
+    randomNumber: Int
+}
