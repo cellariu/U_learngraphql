@@ -2,6 +2,8 @@ package com.cami.udemy.graphql.learngraphql.types;
 
 import lombok.Builder;
 
+import java.time.LocalDate;
+
 @Builder
 public class MobileAppFilter {
 
@@ -10,16 +12,21 @@ public class MobileAppFilter {
     private String version;
     private String platform;
     private AuthorFilter author;
+    private LocalDate releasedAfter;
+    private Integer minimumDownload;
 
     public MobileAppFilter() {
     }
 
-    public MobileAppFilter(String appId, String name, String version, String platform, AuthorFilter author) {
+    public MobileAppFilter(String appId, String name, String version, String platform,
+                           AuthorFilter author, LocalDate releasedAfter, Integer minimumDownload) {
         this.appId = appId;
         this.name = name;
         this.version = version;
         this.platform = platform;
         this.author = author;
+        this.releasedAfter = releasedAfter;
+        this.minimumDownload = minimumDownload;
     }
 
     public String getAppId() {
@@ -60,5 +67,21 @@ public class MobileAppFilter {
 
     public void setAuthor(AuthorFilter author) {
         this.author = author;
+    }
+
+    public LocalDate getReleasedAfter() {
+        return releasedAfter;
+    }
+
+    public void setReleasedAfter(LocalDate releasedAfter) {
+        this.releasedAfter = releasedAfter;
+    }
+
+    public Integer getMinimumDownload() {
+        return minimumDownload;
+    }
+
+    public void setMinimumDownload(Integer minimumDownload) {
+        this.minimumDownload = minimumDownload;
     }
 }

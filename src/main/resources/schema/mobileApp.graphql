@@ -4,6 +4,9 @@ type MobileApp {
     version: String
     platform: [String]
     author: Author
+    releaseDate: Date
+    downloaded: NonNegativeInt
+    homepage: Url
 }
 
 # input objects are used as dynamic filters
@@ -18,6 +21,9 @@ input MobileAppFilter {
     version: String
     platform: String
     author: AuthorFilter
+    releasedAfter: Date
+    minimumDownload: NonNegativeInt
+
 }
 
 # AuthorFilter is defined as input because it is used inside of another input object

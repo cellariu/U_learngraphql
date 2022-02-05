@@ -2,6 +2,8 @@ package com.cami.udemy.graphql.learngraphql.types;
 
 import lombok.Builder;
 
+import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 
 @Builder
@@ -12,16 +14,24 @@ public class MobileApp {
     private String version;
     private List<String> platform;
     private Author author;
+    private LocalDate releaseDate;
+    private Integer downloaded;
+    private URL homepage;
 
     public MobileApp() {
     }
 
-    public MobileApp(String appId, String name, String version, List<String> platform, Author author) {
+    public MobileApp(
+            String appId, String name, String version, List<String> platform,
+                Author author, LocalDate releaseDate, Integer downloaded, URL homepage) {
         this.appId = appId;
         this.name = name;
         this.version = version;
         this.platform = platform;
         this.author = author;
+        this.releaseDate = releaseDate;
+        this.downloaded = downloaded;
+        this.homepage = homepage;
     }
 
     public String getAppId() {
@@ -62,5 +72,29 @@ public class MobileApp {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public Integer getDownloaded() {
+        return downloaded;
+    }
+
+    public void setDownloaded(Integer downloaded) {
+        this.downloaded = downloaded;
+    }
+
+    public URL getHomepage() {
+        return homepage;
+    }
+
+    public void setHomepage(URL homepage) {
+        this.homepage = homepage;
     }
 }

@@ -1,3 +1,6 @@
+scalar Url
+scalar Date
+scalar NonNegativeInt
 
 # create the Root Query
 type Query {
