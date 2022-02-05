@@ -14,12 +14,15 @@ public class MobileAppFilter {
     private AuthorFilter author;
     private LocalDate releasedAfter;
     private Integer minimumDownload;
+    private MobileAppCategory category;
 
     public MobileAppFilter() {
     }
 
-    public MobileAppFilter(String appId, String name, String version, String platform,
-                           AuthorFilter author, LocalDate releasedAfter, Integer minimumDownload) {
+    public MobileAppFilter(
+            String appId, String name, String version, String platform,
+                AuthorFilter author, LocalDate releasedAfter, Integer minimumDownload,
+                    MobileAppCategory category) {
         this.appId = appId;
         this.name = name;
         this.version = version;
@@ -27,6 +30,7 @@ public class MobileAppFilter {
         this.author = author;
         this.releasedAfter = releasedAfter;
         this.minimumDownload = minimumDownload;
+        this.category = category;
     }
 
     public String getAppId() {
@@ -83,5 +87,13 @@ public class MobileAppFilter {
 
     public void setMinimumDownload(Integer minimumDownload) {
         this.minimumDownload = minimumDownload;
+    }
+
+    public MobileAppCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(MobileAppCategory category) {
+        this.category = category;
     }
 }

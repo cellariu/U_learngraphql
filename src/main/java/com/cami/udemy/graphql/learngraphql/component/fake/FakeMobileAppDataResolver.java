@@ -64,12 +64,20 @@ public class FakeMobileAppDataResolver {
             }
         }
 
-        if (mApp.getDownloaded() < filter.getMinimumDownload()) {
-            return false;
+        if (filter.getMinimumDownload() != null) {
+            if (mApp.getDownloaded() < filter.getMinimumDownload()) {
+                return false;
+            }
         }
 
         if (filter.getReleasedAfter() != null) {
             if (filter.getReleasedAfter().isAfter(mApp.getReleaseDate())) {
+                return false;
+            }
+        }
+
+        if (filter.getCategory() != null) {
+            if (filter.getCategory() != mApp.getCategory()) {
                 return false;
             }
         }

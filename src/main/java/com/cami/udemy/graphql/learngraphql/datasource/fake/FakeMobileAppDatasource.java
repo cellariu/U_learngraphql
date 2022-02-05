@@ -60,7 +60,7 @@ public class FakeMobileAppDatasource {
                     .releaseDate(LocalDate.now().minusDays(faker.random().nextInt(365)))
                     .downloaded(faker.number().numberBetween(1, 1_500_000))
                     .homepage(new URL("https://" + faker.internet().url()))
-//                    .category(MobileAppCategory.values()[faker.random().nextInt(MobileAppCategory.values().length)])
+                    .category(MobileAppCategory.values()[faker.random().nextInt(MobileAppCategory.values().length)])
                     .author(author)
                     .build();
 

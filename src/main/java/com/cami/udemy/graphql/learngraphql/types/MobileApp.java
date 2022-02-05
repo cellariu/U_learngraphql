@@ -17,13 +17,15 @@ public class MobileApp {
     private LocalDate releaseDate;
     private Integer downloaded;
     private URL homepage;
+    private MobileAppCategory category;
 
     public MobileApp() {
     }
 
     public MobileApp(
             String appId, String name, String version, List<String> platform,
-                Author author, LocalDate releaseDate, Integer downloaded, URL homepage) {
+                Author author, LocalDate releaseDate, Integer downloaded, URL homepage,
+                    MobileAppCategory category) {
         this.appId = appId;
         this.name = name;
         this.version = version;
@@ -32,6 +34,7 @@ public class MobileApp {
         this.releaseDate = releaseDate;
         this.downloaded = downloaded;
         this.homepage = homepage;
+        this.category = category;
     }
 
     public String getAppId() {
@@ -96,5 +99,13 @@ public class MobileApp {
 
     public void setHomepage(URL homepage) {
         this.homepage = homepage;
+    }
+
+    public MobileAppCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(MobileAppCategory category) {
+        this.category = category;
     }
 }
