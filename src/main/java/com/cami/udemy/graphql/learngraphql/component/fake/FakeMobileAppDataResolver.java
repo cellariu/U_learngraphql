@@ -33,26 +33,31 @@ public class FakeMobileAppDataResolver {
 
     private boolean checkIfMatch(MobileApp mApp, MobileAppFilter filter) {
 
-        if (filter.getName() != null && !filter.getName().isBlank()) {
-            if (!filter.getName().equals(mApp.getName())) {
+        if (!StringUtils.equals(StringUtils.defaultIfBlank(filter.getAppId(), StringUtils.EMPTY), mApp.getAppId())) {
+            return false;
+        }
+
+        if (StringUtils.isNotBlank(filter.getName())) {
+            //if (!StringUtils.containsAny(StringUtils.defaultIfBlank(filter.getName(), StringUtils.EMPTY) , mApp.getName())) {
+            if (!StringUtils.containsIgnoreCase(StringUtils.defaultIfBlank(filter.getName(), StringUtils.EMPTY) , mApp.getName())) {
                 return false;
             }
         }
 
-        if (filter.getVersion() != null && !filter.getVersion().isBlank()) {
-            if(!filter.getVersion().contains(mApp.getVersion())) {
+        if (StringUtils.isNotBlank(filter.getVersion())) {
+            if(!StringUtils.contains(StringUtils.defaultIfBlank(filter.getVersion(), StringUtils.EMPTY), mApp.getVersion())) {
                 return false;
             }
         }
 
-        if (filter.getAuthor() != null && !filter.getAuthor().getName().isBlank()) {
-            if(!filter.getAuthor().getName().equals(mApp.getAuthor().getName())) {
-                return false;
-            }
-        }
-
-        if(filter.getPlatform() != null && !filter.getPlatform().isBlank()) {
+        if(StringUtils.isNotBlank(filter.getPlatform())) {
             if (!mApp.getPlatform().contains(filter.getPlatform())) {
+                return false;
+            }
+        }
+
+        if (filter.getAuthor() != null && StringUtils.isNotBlank(filter.getAuthor().getName())) {
+            if (!StringUtils.contains(filter.getAuthor().getName(), mApp.getAuthor().getName())) {
                 return false;
             }
         }

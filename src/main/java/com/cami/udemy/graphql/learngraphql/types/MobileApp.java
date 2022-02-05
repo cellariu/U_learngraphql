@@ -7,6 +7,7 @@ import java.util.List;
 @Builder
 public class MobileApp {
 
+    private String appId;
     private String name;
     private String version;
     private List<String> platform;
@@ -15,11 +16,20 @@ public class MobileApp {
     public MobileApp() {
     }
 
-    public MobileApp(String name, String version, List<String> platform, Author author) {
+    public MobileApp(String appId, String name, String version, List<String> platform, Author author) {
+        this.appId = appId;
         this.name = name;
         this.version = version;
         this.platform = platform;
         this.author = author;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
     public String getName() {

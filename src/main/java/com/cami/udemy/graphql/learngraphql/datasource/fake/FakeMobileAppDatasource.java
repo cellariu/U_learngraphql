@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Configuration
@@ -52,6 +53,11 @@ public class FakeMobileAppDatasource {
                     .name(faker.app().name())
                     .version(faker.app().version())
                     .platform(platforms)
+                    .appId(UUID.randomUUID().toString())
+                    //.releaseDate(LocalDate.now().minusDays(faker.random().nextInt(365)))
+                    //.downloaded(faker.number().numberBetween(1, 1_500_000))
+                    //.homepage(new URL("https://" + faker.internet.url()))
+                    //.category(MobileAppCategory.values()[faker.random().nextInt(MobileAppCategory.values().length)])
                     .author(author)
                     .build();
 

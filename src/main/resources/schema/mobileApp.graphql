@@ -1,4 +1,5 @@
 type MobileApp {
+    appId: ID!
     name: String!
     version: String
     platform: [String]
@@ -12,6 +13,7 @@ type MobileApp {
 # All input on filters are optional; this means the data resolver
 # must handle the null possibility!
 input MobileAppFilter {
+    appId: ID
     name: String
     version: String
     platform: String
