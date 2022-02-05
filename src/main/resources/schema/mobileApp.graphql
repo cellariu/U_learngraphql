@@ -19,6 +19,7 @@ input MobileAppFilter {
 }
 
 # AuthorFilter is defined as input because it is used inside of another input object
+# called MobileAppFilter - see above
 input AuthorFilter {
     name: String
 }
