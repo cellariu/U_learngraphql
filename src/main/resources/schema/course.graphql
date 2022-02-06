@@ -20,6 +20,13 @@ type Query {
     smartSearch(keyword: String): [SmartSearchResult]
 }
 
+type Mutation {
+    addHello(helloInput: HelloInput!): Int
+    replaceHelloText(helloInput: HelloInput!): [Hello]
+    #replaceHelloText2(number: Int!, newText: String!): [Hello]
+    deleteHello(number: Int!): Int
+}
+
 # create the schema object
 # this part is optional as long as the type name is Query or Mutation
 #schema {
