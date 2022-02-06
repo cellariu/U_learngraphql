@@ -2,6 +2,8 @@ scalar Url
 scalar Date
 scalar NonNegativeInt
 
+union SmartSearchResult = Hello | Book
+
 # create the Root Query
 type Query {
     allHellos: [Hello]
@@ -15,6 +17,7 @@ type Query {
     #   [mobileApp] is the return type and it's an array of MobileApp type
     mobileApps(mobileAppFilter: MobileAppFilter): [MobileApp]
     pets(petFilter: PetFilter): [Pet]
+    smartSearch(keyword: String): [SmartSearchResult]
 }
 
 # create the schema object

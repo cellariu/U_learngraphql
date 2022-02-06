@@ -1,9 +1,10 @@
 package com.cami.udemy.graphql.learngraphql.types;
 
 import lombok.Builder;
+import lombok.experimental.SuperBuilder;
 
-@Builder
-public class Hello {
+@SuperBuilder
+public class Hello extends SmartSearchResult{
 
     private String text;
     private Integer randomNumber;

@@ -1,9 +1,10 @@
 package com.cami.udemy.graphql.learngraphql.types;
 
 import lombok.Builder;
+import lombok.experimental.SuperBuilder;
 
-@Builder
-public class Book {
+@SuperBuilder
+public class Book extends SmartSearchResult {
 
     private String title;
     private String publisher;
