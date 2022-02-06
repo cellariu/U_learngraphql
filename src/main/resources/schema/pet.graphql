@@ -1,0 +1,36 @@
+"""Interface Pet"""
+interface Pet {
+    """The name of the pet"""
+    name: String!
+    """The food type of the pet"""
+    foodType: PetFoodType
+    """The breed of the pet"""
+    breed: String
+}
+
+"""Enumeration for food types"""
+enum PetFoodType {
+    HERBIVORE, CARNIVORE, OMNIVORE
+}
+
+"""Dog implementation of Pet"""
+type Dog implements Pet {
+    name: String!
+    foodType: PetFoodType
+    breed: String
+    size: String
+    coatLength: String
+}
+
+"""Cat implementation of Pet"""
+type Cat implements Pet {
+    name: String!
+    foodType: PetFoodType
+    breed: String
+    registry: String
+}
+
+"""Filter to isolate dogs from cats"""
+input PetFilter {
+    petType: String
+}

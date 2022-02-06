@@ -14,6 +14,7 @@ type Query {
     #   mobileAppFilter is the input argument and it can be null
     #   [mobileApp] is the return type and it's an array of MobileApp type
     mobileApps(mobileAppFilter: MobileAppFilter): [MobileApp]
+    pets(petFilter: PetFilter): [Pet]
 }
 
 # create the schema object
