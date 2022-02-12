@@ -37,6 +37,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.netflix.graphql.dgs</groupId>
+            <artifactId>graphql-dgs-subscriptions-websockets-autoconfigure</artifactId>
+            <version>4.9.15</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
